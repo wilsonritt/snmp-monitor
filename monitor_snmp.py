@@ -150,9 +150,9 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title("Monitoramento SNMP (Modo Precisão)")
+st.title("Monitoramento SNMP")
 ip = st.text_input("IP do equipamento")
-community = st.text_input("Community SNMP", value="public")
+community = st.text_input("Community SNMP", placeholder="public", )
 version_str = st.selectbox("Versão SNMP", ["2c", "1"])
 version = 2 if version_str == "2c" else 1
 
@@ -238,11 +238,6 @@ if st.session_state.interfaces:
 
             if diff_in < 0 or diff_out < 0:
                 st.warning("Delta SNMP negativo. Ignorando coleta.")
-                time.sleep(1)
-                st.rerun()
-
-            if diff_in == 0 and diff_out == 0:
-                st.warning("Coleta sem variação. Ignorada.")
                 time.sleep(1)
                 st.rerun()
 
