@@ -151,7 +151,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.title("Monitoramento SNMP")
-ip = st.text_input("IP do equipamento")
+ip = st.text_input("IP do equipamento", placeholder="192.168.0.1")
 community = st.text_input("Community SNMP", placeholder="public", )
 version_str = st.selectbox("Versão SNMP", ["2c", "1"])
 version = 2 if version_str == "2c" else 1
